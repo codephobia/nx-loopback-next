@@ -21,13 +21,13 @@ export default createBuilder<Options>((options, context): Promise<BuilderOutput>
 async function build(options: Options, context: BuilderContext): Promise<BuilderOutput> {
     const lbResult = spawnLb(options, context);
 
-    if (lbResult.stdout) {
-        context.logger.info(Buffer.from(lbResult.stdout).toString('utf8'));
-    }
+    // if (lbResult.stdout) {
+    //     context.logger.info(Buffer.from(lbResult.stdout).toString('utf8'));
+    // }
 
-    if (lbResult.stderr) {
-        context.logger.error(Buffer.from(lbResult.stderr).toString('utf8'));
-    }
+    // if (lbResult.stderr) {
+    //     context.logger.error(Buffer.from(lbResult.stderr).toString('utf8'));
+    // }
 
     if (lbResult.status === 0) {
         context.logger.info('Typescript compiled successfully');

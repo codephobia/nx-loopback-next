@@ -16,7 +16,6 @@
         "@angular-devkit/architect": "^0.803.21",
         "@angular-devkit/core": "8.3.14",
         "@angular-devkit/schematics": "8.3.14",
-        "@loopback/build": "^3.0.0",
         "shelljs": "^0.8.3",
         "typescript": "~3.5.3"
     },
