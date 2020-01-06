@@ -1,0 +1,9 @@
+{
+    "builders": {
+        "build": {
+            "implementation": "./dist/builders/build/build.impl",
+            "schema": "./src/builders/build/schema.json",
+            "description": "Builds a Loopback 4 project"
+        }
+    }
+}

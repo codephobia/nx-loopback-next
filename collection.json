@@ -1,0 +1,26 @@
+{
+    "name": "nx-loopback-next",
+    "version": "0.0.1",
+    "extends": [
+        "@nrwl/workspace"
+    ],
+    "schematics": {
+        "init": {
+            "factory": "./src/schematics/init/init",
+            "schema": "./src/schematics/init/schema.json",
+            "description": "Initialize the nx-loopback-next plugin",
+            "aliases": [
+                "ng-add"
+            ],
+            "hidden": true
+        },
+        "application": {
+            "factory": "./src/schematics/application/application",
+            "schema": "./src/schematics/application/schema.json",
+            "description": "Create a loopback application",
+            "aliases": [
+                "app"
+            ]
+        }
+    }
+}
