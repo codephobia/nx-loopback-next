@@ -33,7 +33,6 @@ export default function (schema: Schema): Rule {
             addAppFiles(options),
             updateWorkspaceJson(options),
             updateNxJson(options),
-            updatePackageScripts(options),
         ])(host, context);
     };
 }
@@ -73,11 +72,10 @@ function addAppFiles(options: NormalizedSchema): Rule {
     );
 }
 
-function getBuildConfig(project: any, options: NormalizedSchema) {
+function getBuildConfig(project: any, _: NormalizedSchema) {
     return {
         builder: 'nx-loopback-next:build',
         options: {
-            yarnBuildScript: `lb:${normalize(options.name)}:build`,
             main: join(project.sourceRoot, 'index.js'),
             tsConfig: 'tsconfig.json',
         },
@@ -128,18 +126,6 @@ function updateNxJson(options: NormalizedSchema): Rule {
             projects: {
                 ...json.projects,
                 [options.name]: { tags: options.parsedTags }
-            }
-        };
-    });
-}
-
-function updatePackageScripts(options: NormalizedSchema): Rule {
-    return updateJsonInTree(`/package.json`, json => {
-        return {
-            ...json,
-            scripts: {
-                ...json.scripts,
-                [`lb:${normalize(options.name)}:build`]: `cd ./${join(options.appProjectRoot)} && lb-tsc`
             }
         };
     });

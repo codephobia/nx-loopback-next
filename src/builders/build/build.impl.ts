@@ -4,11 +4,6 @@ import * as childProcess from 'child_process';
 
 export interface Options extends JsonObject {
     /**
-     * @description script so the builder can run lb-tsc
-     */
-    yarnBuildScript: string;
-
-    /**
      * @description tsconfig.json path
      */
     tsConfig: string;
@@ -37,8 +32,8 @@ async function build(options: Options, context: BuilderContext): Promise<Builder
 }
 
 function spawnLb(options: Options, context: BuilderContext) {
-    return childProcess.spawnSync('yarn', [
-        'run', `${options.yarnBuildScript}`,
+    return childProcess.spawnSync('npx', [
+        'lb-tsc',
         '-p', `${options.tsConfig}`,
     ], {
         cwd: context.currentDirectory,
