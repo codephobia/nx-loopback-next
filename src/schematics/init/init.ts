@@ -3,7 +3,11 @@ import {
     addDepsToPackageJson
 } from '@nrwl/workspace';
 
-export function addDependencies(): Rule {
+export interface Schema {
+    skipFormat: boolean;
+}
+
+function addDependencies(): Rule {
     return addDepsToPackageJson(
         {
             "@loopback/boot": "^1.6.0",

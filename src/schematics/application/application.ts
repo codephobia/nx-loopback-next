@@ -9,12 +9,21 @@ import {
     Tree,
     url
 } from '@angular-devkit/schematics';
-import { join, normalize, strings } from '@angular-devkit/core';
+import { join, normalize, strings, Path } from '@angular-devkit/core';
 import { toFileName, updateJsonInTree, updateWorkspaceInTree } from '@nrwl/workspace';
 
-import { Schema } from './schema';
-import { NormalizedSchema } from './normalized-schema';
 import init from '../init/init';
+
+export interface Schema {
+    name: string;
+    skipFormat: boolean;
+    tags?: string;
+}
+
+interface NormalizedSchema extends Schema {
+    appProjectRoot: Path;
+    parsedTags: string[];
+}
 
 export default function (schema: Schema): Rule {
     return (host: Tree, context: SchematicContext) => {
