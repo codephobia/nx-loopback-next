@@ -10,8 +10,7 @@
     "schematics": "./collection.json",
     "builders": "./builders.json",
     "scripts": {
-        "build": "tsc",
-        "install": "npm run build"
+        "build": "tsc"
     },
     "dependencies": {
         "@angular-devkit/architect": "^0.803.21",

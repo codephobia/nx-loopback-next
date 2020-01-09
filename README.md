@@ -12,6 +12,12 @@ With NPM:
 
 `npm i nx-loopback-next --save`
 
+Github:
+
+`npm i https://github.com/codephobia/nx-loopback-next.git --save`
+
+And then you must build the contents in your node_modules/nx-loopback-next with `yarn build`.
+
 ## Create a new application
 
 With Nrwl CLI:
@@ -28,16 +34,23 @@ With Angular CLI:
 
 Initializes the Nx monorepo to have dependencies for Loopback 4. This is a hidden schematic and should not ever need to be called.
 
+#### Schema
+
+| Name       | Type    | Required | Description                           |
+|------------|---------|:--------:|---------------------------------------|
+| skipFormat | boolean | false    | Not actually being used yet           |
+
 ### Application
 
 Generates a new Loopback 4 application.
 
 #### Schema
 
-| Name | Type   | Required | Description                           |
-|------|--------|:--------:|---------------------------------------|
-| name | string | yes      | Name of the new application           |
-| tags | string | no       | Comma separated tags used for linting |
+| Name       | Type    | Required | Description                           |
+|------------|---------|:--------:|---------------------------------------|
+| name       | string  | yes      | Name of the new application           |
+| tags       | string  | no       | Comma separated tags used for linting |
+| skipFormat | boolean | false    | Not actually being used yet           |
 
 ## Builders
 
@@ -47,11 +60,11 @@ Builds the application using lb-tsc.
 
 #### Schema
 
-| Name     | Type    | Default | Required | Description                                 |
-|----------|---------|---------|:--------:|---------------------------------------------|
-| appPath  | string  |         | yes      | Path the application. ie. apps/backend      |
-| tsConfig | string  |         | yes      | Path to the tsConfig.json file for Loopback |
-| clean    | boolean | false   | no       | Delete dist files prior to build            |
+| Name       | Type    | Default | Required | Description                                 |
+|------------|---------|---------|:--------:|---------------------------------------------|
+| appPath    | string  |         | yes      | Path the application. ie. apps/backend      |
+| tsConfig   | string  |         | yes      | Path to the tsConfig.json file for Loopback |
+| clean      | boolean | false   | no       | Delete dist files prior to build            |
 
 ### Execute
 

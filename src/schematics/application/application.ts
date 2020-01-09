@@ -110,6 +110,7 @@ function updateWorkspaceJson(options: NormalizedSchema): Rule {
 
         project.architect.build = getBuildConfig(project, options);
         project.architect.serve = getServeConfig(options);
+        // TODO: ADD LINTING SUPPORT
         // project.architect.lint = generateProjectLint(
         //     normalize(project.root),
         //     join(normalize(project.root), 'tsconfig.app.json'),

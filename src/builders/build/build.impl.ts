@@ -4,19 +4,8 @@ import * as childProcess from 'child_process';
 import * as path from 'path';
 
 export interface LoopbackBuildBuilderOptions extends JsonObject {
-    /**
-     * @description path to the application
-     */
     appPath: string;
-
-    /**
-     * @description tsconfig.json path
-     */
     tsConfig: string;
-
-    /**
-     * @description clean out the build beforehand
-     */
     clean: boolean;
 }
 

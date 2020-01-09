@@ -11,10 +11,6 @@ export interface LoopbackExecuteBuilderOptions extends JsonObject {
     args: string[];
     buildTarget: string;
     runOnly: boolean;
-
-    /**
-    * @description clean out the build beforehand
-    */
     clean: boolean;
 }
 
@@ -51,7 +47,6 @@ function handleBuildEvent(
 ): Observable<BuilderOutput | undefined> {
     return iif(
         () => !event.success,
-        // killProcess(context),
         of(undefined),
         runProcess(options, context)
     );
@@ -86,8 +81,7 @@ function runNodeServer(options: LoopbackExecuteBuilderOptions, _: BuilderContext
 }
 
 function getExecArgv(_: LoopbackExecuteBuilderOptions) {
-    const args = ['-r', 'source-map-support/register'];
-    return args;
+    return ['-r', 'source-map-support/register'];
 }
 
 function startBuild(
