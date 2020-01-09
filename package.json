@@ -1,6 +1,6 @@
 {
     "name": "nx-loopback-next",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Loopback 4 builder and schematics for Nx monorepos.",
     "main": "dist/index.js",
     "repository": "https://github.com/codephobia/nx-loopback-next.git",
@@ -10,7 +10,8 @@
     "schematics": "./collection.json",
     "builders": "./builders.json",
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "prepare": "npm run build"
     },
     "dependencies": {
         "@angular-devkit/architect": "^0.803.21",
