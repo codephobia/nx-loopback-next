@@ -20,6 +20,20 @@ export default createBuilder<LoopbackBuildBuilderOptions>((options, context): Pr
 async function build(options: LoopbackBuildBuilderOptions, context: BuilderContext): Promise<BuilderOutput> {
     const lbResult = spawnLb(options, context);
 
+    if (lbResult.stdout) {
+        const info = Buffer.from(lbResult.stdout).toString('utf8');
+        if (info.length) {
+            context.logger.info(info);
+        }
+    }
+
+    if (lbResult.stderr) {
+        const err = Buffer.from(lbResult.stderr).toString('utf8');
+        if (err.length) {
+            context.logger.error(err);
+        }
+    }
+
     if (lbResult.status === 0) {
         context.logger.info('Typescript compiled successfully');
     }

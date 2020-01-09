@@ -1,6 +1,6 @@
 {
     "name": "nx-loopback-next",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Loopback 4 builder and schematics for Nx monorepos.",
     "main": "dist/index.js",
     "repository": "https://github.com/codephobia/nx-loopback-next.git",
@@ -17,13 +17,12 @@
         "@angular-devkit/architect": "^0.803.21",
         "@angular-devkit/core": "8.3.14",
         "@angular-devkit/schematics": "8.3.14",
-        "shelljs": "^0.8.3",
-        "tree-kill": "^1.2.2",
-        "typescript": "~3.5.3"
+        "@nrwl/workspace": "^8.9.0",
+        "shelljs": "^0.8.3"
     },
     "devDependencies": {
-        "@nrwl/workspace": "^8.9.0",
         "@types/node": "^13.1.4",
-        "@types/shelljs": "^0.8.6"
+        "@types/shelljs": "^0.8.6",
+        "typescript": "~3.5.3"
     }
 }
