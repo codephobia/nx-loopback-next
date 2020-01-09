@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "type": "object",
+    "required": [
+        "appPath",
+        "buildTarget"
+    ],
+    "properties": {
+        "appPath": {
+            "type": "string",
+            "description": "Path to the application"
+        },
+        "NODE_ENV": {
+            "type": "string",
+            "description": "Node environment",
+            "default": "development"
+        },
+        "args": {
+            "type": "array",
+            "description": "Extra args when starting the app",
+            "default": [],
+            "items": {
+                "type": "string"
+            }
+        },
+        "buildTarget": {
+            "type": "string",
+            "description": "The target to run to build you the app"
+        },
+        "runOnly": {
+            "type": "boolean",
+            "description": "Don't build the application before running",
+            "default": true
+        },
+        "clean": {
+            "type": "boolean",
+            "description": "Clean out the build beforehand",
+            "default": false
+        }
+    }
+}

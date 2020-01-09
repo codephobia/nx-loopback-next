@@ -1,28 +1,35 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
 import * as childProcess from 'child_process';
+import * as path from 'path';
 
-export interface Options extends JsonObject {
+export interface LoopbackBuildBuilderOptions extends JsonObject {
+    /**
+     * @description path to the application
+     */
+    appPath: string;
+
     /**
      * @description tsconfig.json path
      */
     tsConfig: string;
+
+    /**
+     * @description clean out the build beforehand
+     */
+    clean: boolean;
 }
 
-export default createBuilder<Options>((options, context): Promise<BuilderOutput> => {
+export default createBuilder<LoopbackBuildBuilderOptions>((options, context): Promise<BuilderOutput> => {
+    if (options.clean) {
+        clean(options, context);
+    }
+
     return build(options, context);
 });
 
-async function build(options: Options, context: BuilderContext): Promise<BuilderOutput> {
+async function build(options: LoopbackBuildBuilderOptions, context: BuilderContext): Promise<BuilderOutput> {
     const lbResult = spawnLb(options, context);
-
-    if (lbResult.stdout) {
-        context.logger.info(Buffer.from(lbResult.stdout).toString('utf8'));
-    }
-
-    if (lbResult.stderr) {
-        context.logger.error(Buffer.from(lbResult.stderr).toString('utf8'));
-    }
 
     if (lbResult.status === 0) {
         context.logger.info('Typescript compiled successfully');
@@ -31,12 +38,23 @@ async function build(options: Options, context: BuilderContext): Promise<Builder
     return { success: lbResult.status === 0 };
 }
 
-function spawnLb(options: Options, context: BuilderContext) {
+function spawnLb(options: LoopbackBuildBuilderOptions, context: BuilderContext) {
     return childProcess.spawnSync('npx', [
         'lb-tsc',
         '-p', `${options.tsConfig}`,
     ], {
-        cwd: context.currentDirectory,
+        cwd: path.resolve(context.workspaceRoot, options.appPath),
+        shell: true,
+    });
+}
+
+function clean(options: LoopbackBuildBuilderOptions, context: BuilderContext) {
+    return childProcess.spawnSync('npx', [
+        'lb-clean',
+        path.resolve(context.workspaceRoot, 'dist', options.appPath),
+        path.resolve(context.workspaceRoot, 'dist', 'apps', 'tsconfig.tsbuildinfo'),
+    ], {
+        cwd: path.resolve(context.workspaceRoot),
         shell: true,
     });
 }

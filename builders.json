@@ -4,6 +4,11 @@
             "implementation": "./src/builders/build/build.impl",
             "schema": "./src/builders/build/schema.json",
             "description": "Builds a Loopback 4 project"
+        },
+        "execute": {
+            "implementation": "./src/builders/execute/execute.impl",
+            "schema": "./src/builders/execute/schema.json",
+            "description": "Serves a Loopback 4 project"
         }
     }
 }

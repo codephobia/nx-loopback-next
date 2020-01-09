@@ -2,11 +2,22 @@
     "$schema": "http://json-schema.org/schema",
     "type": "object",
     "required": [
+        "appPath",
         "tsConfig"
     ],
     "properties": {
+        "appPath": {
+            "type": "string",
+            "description": "path to the application"
+        },
         "tsConfig": {
-            "type": "string"
+            "type": "string",
+            "description": "tsconfig.json path"
+        },
+        "clean": {
+            "type": "boolean",
+            "description": "Clean out the build beforehand",
+            "default": false
         }
     }
 }

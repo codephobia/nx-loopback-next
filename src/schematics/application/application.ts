@@ -72,11 +72,12 @@ function addAppFiles(options: NormalizedSchema): Rule {
     );
 }
 
-function getBuildConfig(project: any, _: NormalizedSchema) {
+function getBuildConfig(project: any, options: NormalizedSchema) {
     return {
         builder: 'nx-loopback-next:build',
         options: {
             main: join(project.sourceRoot, 'index.js'),
+            appPath: join(options.appProjectRoot),
             tsConfig: 'tsconfig.json',
         },
         configurations: {}
@@ -85,9 +86,11 @@ function getBuildConfig(project: any, _: NormalizedSchema) {
 
 function getServeConfig(options: NormalizedSchema) {
     return {
-        builder: '@nrwl/node:execute',
+        builder: 'nx-loopback-next:execute',
         options: {
-            buildTarget: `${options.name}:build`
+            buildTarget: `${options.name}:build`,
+            appPath: join(options.appProjectRoot),
+            NODE_ENV: 'development',
         }
     };
 }
