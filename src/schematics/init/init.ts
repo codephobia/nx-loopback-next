@@ -36,7 +36,7 @@ function addDependencies(): Rule {
     );
 }
 
-export default function () {
+export default function (_: Schema) {
     return chain([
         addDependencies(),
     ]);

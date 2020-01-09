@@ -29,7 +29,9 @@ export default function (schema: Schema): Rule {
     return (host: Tree, context: SchematicContext) => {
         const options = normalizeOptions(schema);
         return chain([
-            init(),
+            init({
+                skipFormat: options.skipFormat,
+            }),
             addAppFiles(options),
             updateWorkspaceJson(options),
             updateNxJson(options),
