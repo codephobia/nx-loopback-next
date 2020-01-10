@@ -58,6 +58,14 @@ Generates a new Loopback 4 application.
 
 Builds the application using lb-tsc.
 
+With Nx CLI:
+
+`nx build application-name`
+
+With Angular CLI:
+
+`ng build application-name`
+
 #### Schema
 
 | Name       | Type    | Default | Required | Description                                 |
@@ -69,6 +77,14 @@ Builds the application using lb-tsc.
 ### Execute
 
 Runs the build application with Node.js.
+
+With Nx CLI:
+
+`nx serve application-name`
+
+With Angular CLI:
+
+`ng serve application-name`
 
 #### Schema
 
