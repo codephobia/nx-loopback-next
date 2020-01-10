@@ -1,2 +1,2 @@
 **/*.ts
-tsconfig.json
+/tsconfig.json
