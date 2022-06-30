@@ -14,7 +14,7 @@ With NPM:
 
 Github:
 
-`npm i https://github.com/me-marcel/nx-loopback-next.git --save`
+`npm i https://github.com/me-marcel/nx-loopback-new.git --save`
 
 And then you must build the contents in your node_modules/nx-loopback-new with `yarn build`.
 

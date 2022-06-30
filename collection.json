@@ -1,5 +1,5 @@
 {
-    "name": "nx-loopback-next",
+    "name": "nx-loopback-new",
     "version": "0.0.1",
     "extends": [
         "@nrwl/workspace"
@@ -8,7 +8,7 @@
         "init": {
             "factory": "./src/schematics/init/init",
             "schema": "./src/schematics/init/schema.json",
-            "description": "Initialize the nx-loopback-next plugin",
+            "description": "Initialize the nx-loopback-new plugin",
             "aliases": [
                 "ng-add"
             ],
