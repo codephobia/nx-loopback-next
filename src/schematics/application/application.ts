@@ -73,50 +73,9 @@ function addAppFiles(options: NormalizedSchema): Rule {
     );
 }
 
-function getBuildConfig(project: any, options: NormalizedSchema) {
-    return {
-        builder: 'nx-loopback-new:build',
-        options: {
-            main: join(project.sourceRoot, 'index.js'),
-            appPath: join(options.appProjectRoot),
-            tsConfig: 'tsconfig.json',
-        },
-        configurations: {}
-    };
-}
-
-function getServeConfig(options: NormalizedSchema) {
-    return {
-        builder: 'nx-loopback-new:execute',
-        options: {
-            buildTarget: `${options.name}:build`,
-            appPath: join(options.appProjectRoot),
-            NODE_ENV: 'development',
-        }
-    };
-}
-
 function updateWorkspaceJson(options: NormalizedSchema): Rule {
     return updateWorkspaceInTree(workspaceJson => {
-        const project = {
-            root: options.appProjectRoot,
-            sourceRoot: join(options.appProjectRoot, 'src'),
-            projectType: 'application',
-            prefix: options.name,
-            schematics: {},
-            architect: <any>{}
-        };
-
-        project.architect.build = getBuildConfig(project, options);
-        project.architect.serve = getServeConfig(options);
-        // TODO: ADD LINTING SUPPORT
-        // project.architect.lint = generateProjectLint(
-        //     normalize(project.root),
-        //     join(normalize(project.root), 'tsconfig.app.json'),
-        //     options.linter
-        // );
-
-        workspaceJson.projects[options.name] = project;
+        workspaceJson.projects[options.name] = options.appProjectRoot;
 
         workspaceJson.defaultProject = workspaceJson.defaultProject || options.name;
 
