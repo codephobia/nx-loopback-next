@@ -1,10 +1,13 @@
 {
-    "name": "nx-loopback-next",
-    "version": "0.0.4",
+    "name": "nx-loopback-new",
+    "version": "0.0.5",
     "description": "Loopback 4 builder and schematics for Nx monorepos.",
     "main": "dist/index.js",
-    "repository": "https://github.com/codephobia/nx-loopback-next.git",
-    "author": "Martin Raymond <codephobia@hotmail.com>",
+    "repository": "https://github.com/me-marcel/nx-loopback-next.git",
+    "author": "Marcel Menk <marcel.menk@ipvx.io>",
+    "contributors": [
+        "Martin Raymond <codephobia@hotmail.com>"
+    ],
     "license": "MIT",
     "private": false,
     "schematics": "./collection.json",

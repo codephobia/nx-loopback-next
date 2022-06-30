@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema",
-    "id": "loopback-next-init",
+    "$id": "loopback-next-init",
     "type": "object",
     "properties": {
         "skipFormat": {

@@ -1,4 +1,4 @@
-# nx-loopback-next
+# nx-loopback-new
 
 Create a [Loopback 4](https://loopback.io) application within your [Nx Monorepo](https://nrwl.io). This is more of a proof of concept, and may not be production ready. My hope is that Nrwl adds official support for Loopback within Nx. Pull requests are more than welcome.
 
@@ -6,27 +6,27 @@ Create a [Loopback 4](https://loopback.io) application within your [Nx Monorepo]
 
 With Yarn:
 
-`yarn add nx-loopback-next`
+`yarn add nx-loopback-new`
 
 With NPM:
 
-`npm i nx-loopback-next --save`
+`npm i nx-loopback-new --save`
 
 Github:
 
-`npm i https://github.com/codephobia/nx-loopback-next.git --save`
+`npm i https://github.com/me-marcel/nx-loopback-next.git --save`
 
-And then you must build the contents in your node_modules/nx-loopback-next with `yarn build`.
+And then you must build the contents in your node_modules/nx-loopback-new with `yarn build`.
 
 ## Create a new application
 
 With Nrwl CLI:
 
-`nx g nx-loopback-next:app`
+`nx g nx-loopback-new:app`
 
 With Angular CLI:
 
-`ng g nx-loopback-next:app`
+`ng g nx-loopback-new:app`
 
 ## Schematics
 
@@ -112,3 +112,5 @@ I couldn't have built this without the following resources and wanted to make su
 - The official Nx github is a great resource for seeing how the team at Nrwl are building schematics and builders for Nx. [https://github.com/nrwl/nx](https://github.com/nrwl/nx)
 
 - Abdooly wrote a custom builder for using ts-node. That repo was a massive help in understanding how to make a builder without using webpack. [https://github.com/abdoolly/ts-node-builder](https://github.com/abdoolly/ts-node-builder)
+
+- Martin Raymond published the original generator code. [https://github.com/codephobia/nx-loopback-next](https://github.com/codephobia/nx-loopback-next)
