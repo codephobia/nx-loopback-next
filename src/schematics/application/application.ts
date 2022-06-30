@@ -10,7 +10,7 @@ import {
     url
 } from '@angular-devkit/schematics';
 import { join, normalize, strings, Path } from '@angular-devkit/core';
-import { toFileName, updateJsonInTree, updateWorkspaceInTree } from '@nrwl/workspace';
+import { toFileName, updateWorkspaceInTree } from '@nrwl/workspace';
 
 import init from '../init/init';
 
@@ -34,7 +34,6 @@ export default function (schema: Schema): Rule {
             }),
             addAppFiles(options),
             updateWorkspaceJson(options),
-            updateNxJson(options),
         ])(host, context);
     };
 }
@@ -122,17 +121,5 @@ function updateWorkspaceJson(options: NormalizedSchema): Rule {
         workspaceJson.defaultProject = workspaceJson.defaultProject || options.name;
 
         return workspaceJson;
-    });
-}
-
-function updateNxJson(options: NormalizedSchema): Rule {
-    return updateJsonInTree(`/nx.json`, json => {
-        return {
-            ...json,
-            projects: {
-                ...json.projects,
-                [options.name]: { tags: options.parsedTags }
-            }
-        };
     });
 }

@@ -10,28 +10,28 @@ export interface Schema {
 function addDependencies(): Rule {
     return addDepsToPackageJson(
         {
-            "@loopback/boot": "^1.6.0",
-            "@loopback/context": "^1.25.0",
-            "@loopback/core": "^1.12.0",
-            "@loopback/openapi-v3": "^1.10.3",
-            "@loopback/repository": "^1.16.0",
-            "@loopback/rest": "^1.25.0",
-            "@loopback/rest-explorer": "^1.4.6",
-            "@loopback/service-proxy": "^1.3.13"
+            "@loopback/boot": "^5.0.1",
+            "@loopback/context": "^5.0.1",
+            "@loopback/core": "^4.0.1",
+            "@loopback/openapi-v3": "^8.0.1",
+            "@loopback/repository": "^5.0.1",
+            "@loopback/rest": "^12.0.1",
+            "@loopback/rest-explorer": "^5.0.1",
+            "@loopback/service-proxy": "^5.0.1"
         },
         {
-            "@loopback/build": "^3.0.0",
-            "source-map-support": "^0.5.16",
-            "@loopback/testlab": "^1.10.0",
-            "@types/node": "^10.17.6",
-            "@typescript-eslint/parser": "^2.10.0",
-            "@typescript-eslint/eslint-plugin": "^2.10.0",
-            "@loopback/eslint-config": "^5.0.0",
-            "eslint": "^6.7.2",
-            "eslint-config-prettier": "^6.7.0",
-            "eslint-plugin-eslint-plugin": "^2.1.0",
-            "eslint-plugin-mocha": "^6.2.2",
-            "typescript": "~3.7.3"
+            "source-map-support": "^0.5.21",
+            "@loopback/build": "^9.0.1",
+            "@loopback/testlab": "^5.0.1",
+            "@loopback/eslint-config": "^13.0.1",
+            "typescript": "4.7.4",
+            "@typescript-eslint/parser": "5.24.0",
+            "@typescript-eslint/eslint-plugin": "5.24.0",
+            "@types/node": "16.11.7",
+            "eslint": "^8.17.0",
+            "eslint-config-prettier": "8.1.0",
+            "eslint-plugin-eslint-plugin": "^4.3.0",
+            "eslint-plugin-mocha": "^10.0.5",
         }
     );
 }
