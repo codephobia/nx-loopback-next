@@ -75,7 +75,7 @@ function addAppFiles(options: NormalizedSchema): Rule {
 
 function getBuildConfig(project: any, options: NormalizedSchema) {
     return {
-        builder: 'nx-loopback-next:build',
+        builder: 'nx-loopback-new:build',
         options: {
             main: join(project.sourceRoot, 'index.js'),
             appPath: join(options.appProjectRoot),
@@ -87,7 +87,7 @@ function getBuildConfig(project: any, options: NormalizedSchema) {
 
 function getServeConfig(options: NormalizedSchema) {
     return {
-        builder: 'nx-loopback-next:execute',
+        builder: 'nx-loopback-new:execute',
         options: {
             buildTarget: `${options.name}:build`,
             appPath: join(options.appProjectRoot),

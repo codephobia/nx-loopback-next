@@ -1,9 +1,9 @@
 {
     "name": "nx-loopback-new",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Loopback 4 builder and schematics for Nx monorepos.",
     "main": "dist/index.js",
-    "repository": "https://github.com/me-marcel/nx-loopback-next.git",
+    "repository": "https://github.com/me-marcel/nx-loopback-new.git",
     "author": "Marcel Menk <marcel.menk@ipvx.io>",
     "contributors": [
         "Martin Raymond <codephobia@hotmail.com>"
