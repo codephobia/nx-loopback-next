@@ -1,6 +1,6 @@
 {
     "name": "nx-loopback-new",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "Loopback 4 builder and schematics for Nx monorepos.",
     "main": "dist/index.js",
     "repository": "https://github.com/me-marcel/nx-loopback-new.git",

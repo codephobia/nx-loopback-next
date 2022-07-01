@@ -45,6 +45,7 @@ function spawnLb(options: LoopbackBuildBuilderOptions, context: BuilderContext) 
     return childProcess.spawnSync('npx', [
         'lb-tsc',
         '-p', `${options.tsConfig}`,
+        '--outDir', `${options.outputPath}`,
     ], {
         cwd: path.resolve(context.workspaceRoot, options.appPath),
         shell: true,

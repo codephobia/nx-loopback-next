@@ -3,12 +3,13 @@
     "type": "object",
     "required": [
         "appPath",
-        "tsConfig"
+        "tsConfig",
+        "outputPath"
     ],
     "properties": {
         "appPath": {
             "type": "string",
-            "description": "path to the application"
+            "description": "path to the application source"
         },
         "tsConfig": {
             "type": "string",
@@ -18,6 +19,10 @@
             "type": "boolean",
             "description": "Clean out the build beforehand",
             "default": false
+        },
+        "outputPath": {
+            "type": "string",
+            "description": "path to the application dist"
         }
     }
 }
